@@ -7,7 +7,13 @@ var app = express();
 // Configuracion
 const port = process.env.PORT || 8000;
 
-
+// configuracion del cors.
+const config = {
+    "origin": '*',
+    'Access-Control-Allow-Origin': '*',
+    'allowedHeaders' : ['Content-Type', 'Authorization', 'token']
+};
+app.use(cors(config));
 // Middlewares
 app.use(morgan(process.env.NODE_ENV));
 app.use(express.urlencoded({extended: false}));
